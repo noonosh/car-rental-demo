@@ -1,6 +1,10 @@
 export async function fetchCars() {
+	const API_KEY: string | undefined = process.env.NEXT_PUBLIC_RAPIDAPI_KEY;
+
+	if (!API_KEY) throw new Error("No Rapid API key specified.");
+
 	const headers = {
-		"X-RapidAPI-Key": "3f55567e1cmsh5729d70256fbde3p1bcc16jsne5abf19c4425",
+		"X-RapidAPI-Key": API_KEY,
 		"X-RapidAPI-Host": "cars-by-api-ninjas.p.rapidapi.com",
 	};
 
