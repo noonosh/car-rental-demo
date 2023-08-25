@@ -1,9 +1,18 @@
 "use client";
 import Image from "next/image";
 import CustomButton from "./CustomButton";
+import Link from "next/link";
 
 const Hero = () => {
 	const handleScroll = () => {};
+	const scrolltoHash = function (element_id: string) {
+		const element = document.getElementById(element_id);
+		element?.scrollIntoView({
+			behavior: "smooth",
+			block: "start",
+			inline: "nearest",
+		});
+	};
 	return (
 		<div className='hero'>
 			<div className='flex-1 pt-36 padding-x'>
@@ -17,7 +26,7 @@ const Hero = () => {
 				<CustomButton
 					title='Explore cars'
 					containerStyles='bg-primary-blue text-white rounded-full mt-10'
-					handleClick={handleScroll}
+					handleClick={() => scrolltoHash("discover")}
 				/>
 			</div>
 			<div className='hero__image-container'>

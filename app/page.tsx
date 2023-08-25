@@ -80,8 +80,8 @@ export default function Home() {
 								<Image
 									src='./loader.svg'
 									alt='loader'
-									width={50}
-									height={50}
+									width={70}
+									height={70}
 									className='object-contain'
 								/>
 							</div>
@@ -95,7 +95,18 @@ export default function Home() {
 					</section>
 				) : (
 					<div className='home__error-container'>
-						<h2 className='text-black text-xl font-bold'>Oops, no results</h2>
+						{loading && (
+							<div className='my-12 w-full flex-center'>
+								<Image
+									src='./loader.svg'
+									alt='loader'
+									width={70}
+									height={70}
+									className='object-contain'
+								/>
+							</div>
+						)}
+						<h2 className='text-black text-xl font-bold'>No results found.</h2>
 						<p>{allCars?.message}</p>
 					</div>
 				)}
